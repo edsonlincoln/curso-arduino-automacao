@@ -21,3 +21,26 @@ modulos:
         video: ""
         wokwi: ""
         arquivos: []
+  - id: modulo-2
+    titulo: "Módulo 2 — Projeto 2: ventilação inteligente"
+    aulas:
+      - id: 04_le_dht22
+        titulo: "2.1 — Lendo temperatura e umidade com o DHT22"
+        video: ""
+        wokwi: ""
+        arquivos: []
+      - id: 05_lcd_i2c
+        titulo: "2.2 — Display LCD 16x2 I2C"
+        video: ""
+        wokwi: ""
+        arquivos: []
+      - id: 06_cooler_pwm
+        titulo: "2.3 — Cooler 12 V com MOSFET e PWM"
+        video: ""
+        wokwi: ""
+        arquivos: []
+      - id: 07_ventilacao_inteligente
+        titulo: "2.4 — Projeto 2: ventilação inteligente"
+        video: ""
+        wokwi: ""
+        arquivos: []

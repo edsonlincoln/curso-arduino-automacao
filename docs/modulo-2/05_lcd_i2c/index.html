@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>2.2 — Display LCD 16x2 I2C</title>
+<style>
+:root{--p:#FF7A1A;--e:#191715;--f:#F7F5F1}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--f);color:var(--e)}
+header{background:var(--e);color:#fff;padding:16px 24px}header a{color:#fff;text-decoration:none}
+main{max-width:900px;margin:auto;padding:24px}h1,h2{color:var(--e)}
+.card{background:#fff;border-radius:10px;padding:16px 20px;margin:12px 0;box-shadow:0 1px 4px #0002}
+.btn{display:inline-block;background:var(--p);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;margin:4px 6px 4px 0;border:0;cursor:pointer;font-size:15px}
+.video{position:relative;padding-top:56.25%}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:10px}
+pre{background:#1e1e1e;color:#eee;padding:16px;border-radius:8px;overflow:auto;font-size:14px}
+ul.aulas a{color:var(--e)}footer{text-align:center;padding:24px;font-size:13px;color:#777}
+</style></head><body><header><a href="../../index.html"><b>5 Projetos Arduino de Automação — E3Maker</b> · Área do Aluno</a></header>
+<main><h1>2.2 — Display LCD 16x2 I2C</h1><div class='card'><p>🎬 Videoaula em breve nesta página.</p></div><div class='card'><h2>Arquivos</h2><a class='btn' href='../../downloads/05_lcd_i2c.zip'>⬇ Baixar projeto (ZIP para Arduino IDE)</a><a class='btn' href='../../downloads/05_lcd_i2c/05_lcd_i2c.ino' download>⬇ Só o .ino</a><a class='btn' href='https://github.com/edsonlincoln/curso-arduino-automacao/tree/main/codigos/modulo-2/05_lcd_i2c' target='_blank'>Ver no GitHub</a><p><small>Descompacte o ZIP e abra o arquivo .ino — a pasta já vem com o nome certo para a Arduino IDE.</small></p></div><div class='card'><h2>Código</h2><button class='btn' onclick="copiar('cod')">Copiar código</button><pre id='cod'>// Aula 2.2 — DHT22 + display LCD 16x2 I2C (Kitnet Inteligente E3Maker)
+// Bibliotecas: &quot;DHT sensor library&quot;, &quot;Adafruit Unified Sensor&quot;, &quot;LiquidCrystal I2C&quot; (Frank de Brabander)
+#include &lt;DHT.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+#define PINO_DHT 2
+#define TIPO_DHT DHT22
+
+DHT dht(PINO_DHT, TIPO_DHT);
+LiquidCrystal_I2C lcd(0x27, 16, 2);   // se a tela ficar vazia, troque 0x27 por 0x3F
+
+void setup() {
+  dht.begin();
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0); lcd.print(&quot;Kitnet 01&quot;);
+  lcd.setCursor(0, 1); lcd.print(&quot;Iniciando...&quot;);
+}
+
+void loop() {
+  delay(2500);
+  float u = dht.readHumidity();
+  float t = dht.readTemperature();
+
+  lcd.setCursor(0, 1);
+  if (isnan(u) || isnan(t)) {
+    lcd.print(&quot;Erro no sensor  &quot;);
+    return;
+  }
+  lcd.print(t, 1); lcd.print((char)223); lcd.print(&quot;C  &quot;);   // (char)223 = símbolo de grau
+  lcd.print(u, 0); lcd.print(&quot;%     &quot;);                      // espaços apagam sobras
+}
+</pre></div></main><footer>E3Maker · www.e3maker.com.br</footer>
+<script>function copiar(id){navigator.clipboard.writeText(document.getElementById(id).innerText);alert('Código copiado!')}</script>
+</body></html>
