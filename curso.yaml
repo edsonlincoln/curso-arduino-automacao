@@ -1,0 +1,23 @@
+titulo: 5 Projetos Arduino de Automação — E3Maker
+url_base: https://edsonlincoln.github.io/curso-arduino-automacao
+repo: https://github.com/edsonlincoln/curso-arduino-automacao
+cores: {primaria: "#FF7A1A", escura: "#191715", fundo: "#F7F5F1"}
+modulos:
+  - id: modulo-1
+    titulo: "Módulo 1 — Fundamentos e Projeto 1: luz de corredor automática"
+    aulas:
+      - id: 01_pisca_led
+        titulo: "1.2 — Primeiro programa: pisca LED"
+        video: ""
+        wokwi: ""
+        arquivos: []
+      - id: 02_teste_rele
+        titulo: "1.3 — Teste do módulo relé com fita LED 12 V"
+        video: ""
+        wokwi: ""
+        arquivos: []
+      - id: 03_luz_corredor
+        titulo: "1.4 — Projeto 1: luz de corredor automática"
+        video: ""
+        wokwi: ""
+        arquivos: []
